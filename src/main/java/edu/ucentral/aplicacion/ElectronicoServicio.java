@@ -7,6 +7,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
+import java.util.List;
+
 @ApplicationScoped
 public class ElectronicoServicio {
     @Inject
@@ -21,6 +23,9 @@ public class ElectronicoServicio {
 
         electronicoRepositorio.persist(electronico);
         return true;
+    }
+    public List<Electronico> consultarTodos() {
+        return this.electronicoRepositorio.listAll();
     }
 
 }
